@@ -32,6 +32,6 @@ rosrun tf2_web_republisher tf2_web_republisher
 ### Docker Commands
 
 ```shell
-docker build -t viniciusbaltoe/is-ros-translator:0.0.8 -f etc/docker/Dockerfile .
-docker run -ti --rm --network=host -p 5672:5672  viniciusbaltoe/is-ros-translator:0.0.8 /bin/bash
+docker build -t viniciusbaltoe/is-ros-translator:0.0.9 -f etc/docker/Dockerfile .
+docker run -ti --rm --network=host -p 5672:5672  viniciusbaltoe/is-ros-translator:0.0.9 /bin/bash
 ```
