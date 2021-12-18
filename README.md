@@ -1,6 +1,6 @@
 # is-ros-translator
 
-It's a service for Intelligent Spaces.
+This is a service for Intelligent Spaces (IS) responsible for the integration of the programmable environment with the Robots Operating System ROS.
 
 ## Usage
 
