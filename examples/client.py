@@ -58,6 +58,8 @@ if __name__ == "__main__":
     ros_request.any.Pack(rt_request)
     ros_request.topic = '/move_base/goal'
 
+    ros_request.function = 'RTR_Translate' # optional
+
     channel.publish(
         Message(content=ros_request, reply_to=subscription),
         topic=topic)

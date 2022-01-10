@@ -55,7 +55,7 @@ class ROSTranslator(object):
 
         self.correspondence = correspondence_dict
 
-        self.ros = roslibpy.Ros(host=self.robot_ip, port=self.robot_port)
+        self.ros = roslibpy.Ros(host=str(self.robot_ip), port=int(self.robot_port))
         self.ros.run()
 
 # -=-=-=-=-=-=-=-=-=-=-= ROS TOPICS, SERVICES ... =-=-=-=-=-=-=-=-=-=-=-=-
@@ -108,13 +108,16 @@ class ROSTranslator(object):
         is_msg = is_msg_type_class()
         translate_request.any.Unpack(is_msg)
 
-        method_name = self.correspondence[translate_request.any.type_url.split('/')[-1].split('.')[-1]]
+        if translate_request.function == '':
+            method_name = self.correspondence[translate_request.any.type_url.split('/')[-1].split('.')[-1]]
+        else:
+            method_name = translate_request.function
 
         funcs = globals().copy()
         funcs.update(locals())
         method = funcs.get(method_name)
         if not method:
-             raise NotImplementedError("Method %s not implemented" % method_name)
+             raise NotImplementedError("Method/Function %s not implemented" % method_name)
         function = getattr(method, method_name)
         maybe_ok = function(self, translate_request)
 
