@@ -2,7 +2,7 @@
     "broker_uri": "amqp://guest:guest@localhost:5672",
     
     "robot":{
-        "robot_id": 1,
+        "robot_id": 0,
         "robot_ip": "0.0.0.0",
         "robot_port": "0000"
     }
